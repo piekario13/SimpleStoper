@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import SwitchButton from './SwitchButton';
+import ResetButton from './ResetButton';
 
 class App extends Component {
   state = {
@@ -25,12 +26,19 @@ class App extends Component {
     })
   }
 
+  handleClickReset = () => {
+    this.setState({
+      time: 0
+    })
+  }
+
   render() {
     return (
       <div>
         <p>{this.state.time}</p>
         <SwitchButton click={this.handleClick}
           active={this.state.active} />
+        <ResetButton click={this.handleClickReset} />
       </div>
     )
   }
